@@ -9,7 +9,7 @@
 import Foundation
 
 class Mano: NSObject {
-    
+    var idMano = 0
     var nome: String!
     var esporte: String!
     var cidade: String!

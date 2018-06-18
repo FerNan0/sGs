@@ -14,12 +14,23 @@ class ManosListagemViewController: UIViewController {
     @IBOutlet weak var viewFooter: UIView!
     @IBOutlet weak var btnAdd: UIButton!
     
-    var manos: NSArray!
+    var manos: Array<Mano>!
+    let bd = BDSQLite()
+    var manoSegue: Mano! = nil
     
     override func viewDidLoad() {
+        setLayout()
+    }
+    
+    func setLayout() {
+        if bd.openDatabase() {
+            NSLog("uhul")
+            if bd.criaTabelaMano() {
+                manos = bd.selecionaManos()
+            }
+        }
         tbvManos.delegate = self
         tbvManos.dataSource = self
-        manos = NSArray()
         tbvManos.tableFooterView = viewFooter
         
         btnAdd.setTitle("Adicionar", for: .normal)
@@ -27,6 +38,17 @@ class ManosListagemViewController: UIViewController {
     
     @IBAction func adicionarMano(){
         performSegue(withIdentifier: "segue_mano_add", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let manoHAHA: ManosViewController = segue.destination as! ManosViewController
+        manoHAHA.bd = bd
+        manos = bd.selecionaManos()
+        tbvManos.reloadData()
+        
+        if manoSegue != nil {
+            manoHAHA.manoSegue = manoSegue
+        }
     }
 
 }
@@ -42,7 +64,7 @@ extension ManosListagemViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ManoDoCell = tableView.dequeueReusableCell(withIdentifier: "Mano") as! ManoDoCell
-        let maninho: Mano = manos[indexPath.row] as! Mano
+        let maninho: Mano = manos[indexPath.row]
         cell.configuraMano(nome: maninho.nome)
         
         return cell
@@ -51,6 +73,7 @@ extension ManosListagemViewController: UITableViewDataSource {
 
 extension ManosListagemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        manoSegue = manos[indexPath.row]
         performSegue(withIdentifier: "segue_mano_add", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }

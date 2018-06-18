@@ -19,6 +19,7 @@
 		ED892F4C20D816AA00B881FB /* ManosListagemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED892F4B20D816AA00B881FB /* ManosListagemViewController.swift */; };
 		ED892F4F20D82D3E00B881FB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED892F4E20D82D3E00B881FB /* libsqlite3.tbd */; };
 		ED892F5220D82D9300B881FB /* Mano.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED892F5120D82D9300B881FB /* Mano.swift */; };
+		ED892F5520D8317500B881FB /* BDSQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED892F5420D8317500B881FB /* BDSQLite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		ED892F4B20D816AA00B881FB /* ManosListagemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManosListagemViewController.swift; sourceTree = "<group>"; };
 		ED892F4E20D82D3E00B881FB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		ED892F5120D82D9300B881FB /* Mano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mano.swift; sourceTree = "<group>"; };
+		ED892F5420D8317500B881FB /* BDSQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDSQLite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		ED892F4520D8147500B881FB /* Manos */ = {
 			isa = PBXGroup;
 			children = (
+				ED892F5320D830E900B881FB /* sqlite */,
 				ED892F5020D82D7A00B881FB /* Modelo */,
 				ED892F4820D814EA00B881FB /* Cell */,
 				ED892F4720D814BD00B881FB /* ViewController */,
@@ -187,6 +190,14 @@
 				ED892F5120D82D9300B881FB /* Mano.swift */,
 			);
 			path = Modelo;
+			sourceTree = "<group>";
+		};
+		ED892F5320D830E900B881FB /* sqlite */ = {
+			isa = PBXGroup;
+			children = (
+				ED892F5420D8317500B881FB /* BDSQLite.swift */,
+			);
+			path = sqlite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,6 +336,7 @@
 				ED892F5220D82D9300B881FB /* Mano.swift in Sources */,
 				ED892F4420D7F66200B881FB /* ManosViewController.swift in Sources */,
 				DECEDACF208F9FE9009747FD /* ViewController.swift in Sources */,
+				ED892F5520D8317500B881FB /* BDSQLite.swift in Sources */,
 				DECEDACD208F9FE8009747FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
