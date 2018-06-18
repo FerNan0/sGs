@@ -8,10 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITabBarController {
 
+    @IBOutlet weak var labelPrimeira: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = UIColor .black
+        //labelPrimeira.text = "eaeeee!"
         // Do any additional setup after loading the view, typically from a nib.
     }
 

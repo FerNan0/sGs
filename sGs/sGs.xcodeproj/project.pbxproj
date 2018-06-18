@@ -15,6 +15,7 @@
 		DECEDAD7208FA135009747FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DECEDAD5208FA135009747FD /* LaunchScreen.storyboard */; };
 		DECEDAE2208FA137009747FD /* sGsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEDAE1208FA137009747FD /* sGsTests.swift */; };
 		DECEDAED208FA139009747FD /* sGsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEDAEC208FA139009747FD /* sGsUITests.swift */; };
+		ED892F4420D7F66200B881FB /* ManosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED892F4320D7F66200B881FB /* ManosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		DECEDAE8208FA138009747FD /* sGsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sGsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEDAEC208FA139009747FD /* sGsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sGsUITests.swift; sourceTree = "<group>"; };
 		DECEDAEE208FA139009747FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED892F4320D7F66200B881FB /* ManosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				DECEDAD5208FA135009747FD /* LaunchScreen.storyboard */,
 				DECEDAD8208FA135009747FD /* Info.plist */,
 				DE08585220912EF200B49518 /* PrincipalViewController.swift */,
+				ED892F4320D7F66200B881FB /* ManosViewController.swift */,
 			);
 			path = sGs;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE08585320912EF200B49518 /* PrincipalViewController.swift in Sources */,
+				ED892F4420D7F66200B881FB /* ManosViewController.swift in Sources */,
 				DECEDACF208F9FE9009747FD /* ViewController.swift in Sources */,
 				DECEDACD208F9FE8009747FD /* AppDelegate.swift in Sources */,
 			);
