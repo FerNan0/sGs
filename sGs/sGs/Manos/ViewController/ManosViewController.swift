@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SQLite3
 
 class ManosViewController: UIViewController {
 
@@ -29,6 +30,11 @@ class ManosViewController: UIViewController {
         btnSalvar.setTitle("Salvar", for: .normal)
                 
     }
+    
+    @IBAction func salvarMano(){
+        dismiss(animated: true, completion: nil)
+    }
+        
     override func viewWillAppear(_ animated: Bool) {
         
     }

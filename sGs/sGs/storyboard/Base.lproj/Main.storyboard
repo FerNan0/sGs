@@ -32,6 +32,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5MA-4o-kM7">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="adicionarMano" destination="5ad-AD-43I" eventType="touchUpInside" id="ftU-Vc-tuY"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,7 +86,7 @@
                         <outlet property="btnAdd" destination="5MA-4o-kM7" id="wES-iF-fUg"/>
                         <outlet property="tbvManos" destination="1Bh-XZ-cJw" id="Gd3-4k-HUF"/>
                         <outlet property="viewFooter" destination="R4q-XT-rca" id="h4V-BO-wNc"/>
-                        <segue destination="1jm-TW-mfy" kind="show" identifier="segue_mano_add" id="Cif-OR-twe"/>
+                        <segue destination="1jm-TW-mfy" kind="presentation" identifier="segue_mano_add" id="Cif-OR-twe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XfI-hp-cgu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -132,6 +135,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXb-Np-MBa">
                                 <rect key="frame" x="16" y="386" width="343" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="salvarMano" destination="1jm-TW-mfy" eventType="touchUpInside" id="fWm-VR-HML"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

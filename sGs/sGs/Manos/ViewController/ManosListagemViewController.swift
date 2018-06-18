@@ -14,13 +14,19 @@ class ManosListagemViewController: UIViewController {
     @IBOutlet weak var viewFooter: UIView!
     @IBOutlet weak var btnAdd: UIButton!
     
-    let manos: [String] = ["Joao", "Zé", "Gabriel", "Sapo", "Shinir", "Bacteria", "Tiguera"]
+    var manos: NSArray!
     
     override func viewDidLoad() {
         tbvManos.delegate = self
         tbvManos.dataSource = self
-        
+        manos = NSArray()
         tbvManos.tableFooterView = viewFooter
+        
+        btnAdd.setTitle("Adicionar", for: .normal)
+    }
+    
+    @IBAction func adicionarMano(){
+        performSegue(withIdentifier: "segue_mano_add", sender: self)
     }
 
 }
@@ -36,7 +42,9 @@ extension ManosListagemViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ManoDoCell = tableView.dequeueReusableCell(withIdentifier: "Mano") as! ManoDoCell
-        cell.configuraMano(nome: manos[indexPath.row])
+        let maninho: Mano = manos[indexPath.row] as! Mano
+        cell.configuraMano(nome: maninho.nome)
+        
         return cell
     }
 }
