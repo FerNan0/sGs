@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6328860038DCC3E4609FF891 /* Pods_sGs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28242378FD67E32BA3CEA8C8 /* Pods_sGs.framework */; };
 		DECEDACD208F9FE8009747FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEDACC208F9FE8009747FD /* AppDelegate.swift */; };
 		DECEDACF208F9FE9009747FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECEDACE208F9FE9009747FD /* ViewController.swift */; };
 		DECEDAD2208F9FEE009747FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DECEDAD0208F9FED009747FD /* Main.storyboard */; };
@@ -40,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28242378FD67E32BA3CEA8C8 /* Pods_sGs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sGs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F4B02DF49089EAC856D27FC /* Pods-sGs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sGs.release.xcconfig"; path = "Pods/Target Support Files/Pods-sGs/Pods-sGs.release.xcconfig"; sourceTree = "<group>"; };
+		94567F740CB0D42748CE10D6 /* Pods-sGs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sGs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sGs/Pods-sGs.debug.xcconfig"; sourceTree = "<group>"; };
 		DECEDAC9208F9FE8009747FD /* sGs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sGs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DECEDACC208F9FE8009747FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DECEDACE208F9FE9009747FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED892F4F20D82D3E00B881FB /* libsqlite3.tbd in Frameworks */,
+				6328860038DCC3E4609FF891 /* Pods_sGs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38DAB00ECA61DC3FA671F80F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94567F740CB0D42748CE10D6 /* Pods-sGs.debug.xcconfig */,
+				6F4B02DF49089EAC856D27FC /* Pods-sGs.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DECEDAC0208F9FE0009747FD = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +109,7 @@
 				DECEDAEB208FA139009747FD /* sGsUITests */,
 				DECEDACA208F9FE8009747FD /* Products */,
 				ED892F4D20D82D3E00B881FB /* Frameworks */,
+				38DAB00ECA61DC3FA671F80F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				ED892F4E20D82D3E00B881FB /* libsqlite3.tbd */,
+				28242378FD67E32BA3CEA8C8 /* Pods_sGs.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,9 +223,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DECEDAF1208FA139009747FD /* Build configuration list for PBXNativeTarget "sGs" */;
 			buildPhases = (
+				E6A081413029D1C5F5ACFD60 /* [CP] Check Pods Manifest.lock */,
 				DECEDAC5208F9FE7009747FD /* Sources */,
 				DECEDAC6208F9FE7009747FD /* Frameworks */,
 				DECEDAC7208F9FE7009747FD /* Resources */,
+				64A5AECA892C954E254A7AF8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -325,6 +343,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64A5AECA892C954E254A7AF8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-sGs/Pods-sGs-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sGs/Pods-sGs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6A081413029D1C5F5ACFD60 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-sGs-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DECEDAC5208F9FE7009747FD /* Sources */ = {
@@ -508,11 +567,13 @@
 		};
 		DECEDAF2208FA139009747FD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94567F740CB0D42748CE10D6 /* Pods-sGs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AP5AFVKDXT;
 				INFOPLIST_FILE = sGs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,11 +587,13 @@
 		};
 		DECEDAF3208FA139009747FD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F4B02DF49089EAC856D27FC /* Pods-sGs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AP5AFVKDXT;
 				INFOPLIST_FILE = sGs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
