@@ -14,5 +14,5 @@ class Mano: NSObject {
     var esporte: String!
     var cidade: String!
     var email: String!
-    var nota: Double!
+    var nota: Float!
 }

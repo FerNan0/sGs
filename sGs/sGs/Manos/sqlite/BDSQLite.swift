@@ -61,16 +61,16 @@ class BDSQLite: NSObject {
             
             let id = sqlite3_column_int64(statement, 0)
             manoAux.idMano = Int(id)
-            let nome = sqlite3_column_text(statement, 5)
+            let nome = sqlite3_column_text(statement, 1)
             manoAux.nome = String(cString: nome!)
-            let esporte = sqlite3_column_text(statement, 5)
+            let esporte = sqlite3_column_text(statement, 2)
             manoAux.esporte = String(cString: esporte!)
-            let cidade = sqlite3_column_text(statement, 5)
+            let cidade = sqlite3_column_text(statement, 3)
             manoAux.cidade = String(cString: cidade!)
-            let email = sqlite3_column_text(statement, 5)
+            let email = sqlite3_column_text(statement, 4)
             manoAux.email = String(cString: email!)
             let nota = sqlite3_column_double(statement, 5)            
-            manoAux.nota = Double(nota)
+            manoAux.nota = Float(nota)
             
             manos.append(manoAux)
         }

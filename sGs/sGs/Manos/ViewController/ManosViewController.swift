@@ -48,6 +48,7 @@ class ManosViewController: UIViewController {
         man.esporte = txtEsporte.text!
         man.cidade = txtCidade.text!
         man.email = txtEmail.text!
+        man.nota = sliderNota.value
         
         if bd.insereMano(mano: man) {
             NSLog("uhuul")
