@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class ManosViewController: UIViewController {
 
@@ -49,6 +50,15 @@ class ManosViewController: UIViewController {
         man.cidade = txtCidade.text!
         man.email = txtEmail.text!
         man.nota = sliderNota.value
+        
+        let dictionary = ["nome": man.nome,"esporte":man.esporte,"cidade":man.cidade,"email":man.email,"nota":man.nota] as [String : Any]
+        
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
+        
+        ref.child("sGs").child("manos").childByAutoId().setValue(dictionary)
+        
         
         if bd.insereMano(mano: man) {
             NSLog("uhuul")

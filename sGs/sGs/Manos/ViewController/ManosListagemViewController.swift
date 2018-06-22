@@ -42,7 +42,7 @@ class ManosListagemViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let manoHAHA: ManosViewController = segue.destination as! ManosViewController
-        manoHAHA.bd = bd
+        
         manos = bd.selecionaManos()
         tbvManos.reloadData()
         
