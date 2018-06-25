@@ -21,6 +21,7 @@
 		ED892F4F20D82D3E00B881FB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ED892F4E20D82D3E00B881FB /* libsqlite3.tbd */; };
 		ED892F5220D82D9300B881FB /* Mano.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED892F5120D82D9300B881FB /* Mano.swift */; };
 		ED892F5520D8317500B881FB /* BDSQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED892F5420D8317500B881FB /* BDSQLite.swift */; };
+		ED8C27AF20DD559400388287 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED8C27AE20DD559300388287 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		ED892F4E20D82D3E00B881FB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		ED892F5120D82D9300B881FB /* Mano.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mano.swift; sourceTree = "<group>"; };
 		ED892F5420D8317500B881FB /* BDSQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDSQLite.swift; sourceTree = "<group>"; };
+		ED8C27AE20DD559300388287 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../google-service-sgs/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,13 +128,14 @@
 		DECEDACB208F9FE8009747FD /* sGs */ = {
 			isa = PBXGroup;
 			children = (
+				EDC73B6020DC336F0014602E /* AppDelegate */,
 				ED892F4620D8148700B881FB /* storyboard */,
 				ED892F4520D8147500B881FB /* Manos */,
-				DECEDACC208F9FE8009747FD /* AppDelegate.swift */,
 				DECEDACE208F9FE9009747FD /* ViewController.swift */,
 				DECEDAD3208FA134009747FD /* Assets.xcassets */,
 				DECEDAD5208FA135009747FD /* LaunchScreen.storyboard */,
 				DECEDAD8208FA135009747FD /* Info.plist */,
+				ED8C27AE20DD559300388287 /* GoogleService-Info.plist */,
 			);
 			path = sGs;
 			sourceTree = "<group>";
@@ -214,6 +217,14 @@
 				ED892F5420D8317500B881FB /* BDSQLite.swift */,
 			);
 			path = sqlite;
+			sourceTree = "<group>";
+		};
+		EDC73B6020DC336F0014602E /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				DECEDACC208F9FE8009747FD /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DECEDAD7208FA135009747FD /* LaunchScreen.storyboard in Resources */,
+				ED8C27AF20DD559400388287 /* GoogleService-Info.plist in Resources */,
 				DECEDAD4208FA134009747FD /* Assets.xcassets in Resources */,
 				DECEDAD2208F9FEE009747FD /* Main.storyboard in Resources */,
 			);
@@ -354,11 +366,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-sGs/Pods-sGs-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

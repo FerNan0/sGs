@@ -28,6 +28,7 @@ class ManosViewController: UIViewController {
         txtEsporte.placeholder = "Esporte"
         txtCidade.placeholder = "Cidade"
         txtEmail.placeholder = "Email"
+        bd = BDSQLite()
         
         if(manoSegue != nil) {
             txtNome.text = manoSegue.nome

@@ -23,12 +23,12 @@ class ManosListagemViewController: UIViewController {
     }
     
     func setLayout() {
-        if bd.openDatabase() {
-            NSLog("uhul")
-            if bd.criaTabelaMano() {
+        
+        if bd.criaTabelaMano() {
                 manos = bd.selecionaManos()
-            }
+                tbvManos.reloadData()
         }
+        
         tbvManos.delegate = self
         tbvManos.dataSource = self
         tbvManos.tableFooterView = viewFooter
@@ -59,7 +59,11 @@ extension ManosListagemViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return manos.count
+        if(manos != nil) {
+            return manos.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

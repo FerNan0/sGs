@@ -80,7 +80,10 @@ class BDSQLite: NSObject {
     func insereMano(mano:Mano) -> Bool {
         var stmt: OpaquePointer?
          let queryString = "insert into mano (nome, esporte, cidade, email, nota) values (?,?,?,?,?)"
-    
+        
+         self.openDatabase()
+         let SQLITE_TRANSIENT = unsafeBitCast(OpaquePointer(bitPattern: -1), to: sqlite3_destructor_type.self)
+
         //preparing the query
         if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
@@ -89,30 +92,30 @@ class BDSQLite: NSObject {
         }
         
         //binding the parameters
-        if sqlite3_bind_text(stmt, 1, mano.nome, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 1, mano.nome, -1, SQLITE_TRANSIENT) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
         }
         
-        if sqlite3_bind_text(stmt, 2, mano.esporte, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 2, mano.esporte, -1, SQLITE_TRANSIENT) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
         }
         
-        if sqlite3_bind_text(stmt, 3, mano.cidade, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 3, mano.cidade, -1, SQLITE_TRANSIENT) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
         }
         
-        if sqlite3_bind_text(stmt, 4, mano.email, -1, nil) != SQLITE_OK{
+        if sqlite3_bind_text(stmt, 4, mano.email, -1, SQLITE_TRANSIENT) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
         }
-        if sqlite3_bind_double(stmt, 5, 5.5) != SQLITE_OK{
+        if sqlite3_bind_double(stmt, 5, Double(mano.nota)) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
             return false
