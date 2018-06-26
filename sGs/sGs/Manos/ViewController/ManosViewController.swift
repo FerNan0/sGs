@@ -60,9 +60,7 @@ class ManosViewController: UIViewController {
         ref.child("sGs").child("manos").childByAutoId().setValue(dictionary)
         
         
-        if bd.insereMano(mano: man) {
-            NSLog("uhuul")
-        }
+        bd.insereMano(mano: man)
         
         dismiss(animated: true, completion: nil)
     }

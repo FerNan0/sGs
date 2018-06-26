@@ -13,9 +13,9 @@ import SQLite3
 
 class BDSQLite: NSObject {
     
-    var db: OpaquePointer?
+    var db: OpaquePointer? = OpaquePointer(bitPattern: 1)
     
-    func openDatabase() -> Bool {
+    func openDatabase() {
         //the database file
         let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             .appendingPathComponent("HeroesDatabase.sqlite")
@@ -24,7 +24,7 @@ class BDSQLite: NSObject {
         if sqlite3_open(fileURL.path, &db) != SQLITE_OK {
             print("error opening database")
         }
-        return true
+        
     }
     
     func closeDatabase() {
@@ -35,21 +35,20 @@ class BDSQLite: NSObject {
         db = nil
     }
     
-    func criaTabelaMano() -> Bool{
-        
+    func criaTabelaMano() {
+        openDatabase()
         if sqlite3_exec(db, "create table if not exists mano (id integer primary key autoincrement, nome text, esporte text, cidade text, email text, nota real)", nil, nil, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error creating table: \(errmsg)")
-            return false
         }
-        
-        return true
+        closeDatabase()
     }
     
     func selecionaManos() -> Array<Mano> {
         var statement: OpaquePointer?
         var manos = [Mano]()
         
+        openDatabase()
         if sqlite3_prepare_v2(db, "select * from mano", -1, &statement, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing select: \(errmsg)")
@@ -74,58 +73,51 @@ class BDSQLite: NSObject {
             
             manos.append(manoAux)
         }
+        closeDatabase()
         return manos
     }
     
-    func insereMano(mano:Mano) -> Bool {
+    func insereMano(mano:Mano) {
         var stmt: OpaquePointer?
          let queryString = "insert into mano (nome, esporte, cidade, email, nota) values (?,?,?,?,?)"
-    
+         openDatabase()
         //preparing the query
         if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error preparing insert: \(errmsg)")
-            return false
         }
         
         //binding the parameters
         if sqlite3_bind_text(stmt, 1, mano.nome, -1, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
-            return false
         }
         
         if sqlite3_bind_text(stmt, 2, mano.esporte, -1, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
-            return false
         }
         
         if sqlite3_bind_text(stmt, 3, mano.cidade, -1, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
-            return false
         }
         
         if sqlite3_bind_text(stmt, 4, mano.email, -1, nil) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
-            return false
         }
         if sqlite3_bind_double(stmt, 5, 5.5) != SQLITE_OK{
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure binding name: \(errmsg)")
-            return false
         }
         
         //executing the query to insert values
         if sqlite3_step(stmt) != SQLITE_DONE {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("failure inserting hero: \(errmsg)")
-            return false
         }
-        
-        return true
+        closeDatabase()
     }
     
 }

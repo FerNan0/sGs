@@ -23,12 +23,10 @@ class ManosListagemViewController: UIViewController {
     }
     
     func setLayout() {
-        if bd.openDatabase() {
-            NSLog("uhul")
-            if bd.criaTabelaMano() {
-                manos = bd.selecionaManos()
-            }
-        }
+
+        bd.criaTabelaMano()
+        manos = bd.selecionaManos()
+        
         tbvManos.delegate = self
         tbvManos.dataSource = self
         tbvManos.tableFooterView = viewFooter
